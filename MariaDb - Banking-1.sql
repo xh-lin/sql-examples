@@ -3,7 +3,7 @@ create database Banking;
 use Banking;
  
 
-    create table ACCOUNT (
+    create table account (
         ACCOUNT_ID integer not null auto_increment,
         AVAIL_BALANCE float,
         CLOSE_DATE date,
@@ -18,7 +18,7 @@ use Banking;
         primary key (ACCOUNT_ID)
     );
 
-    create table ACC_TRANSACTION (
+    create table acc_transaction (
         TXN_ID bigint not null auto_increment,
         AMOUNT float not null,
         FUNDS_AVAIL_DATE datetime not null,
@@ -30,7 +30,7 @@ use Banking;
         primary key (TXN_ID)
     );
 
-    create table BRANCH (
+    create table branch (
         BRANCH_ID integer not null auto_increment,
         ADDRESS varchar(30),
         CITY varchar(20),
@@ -40,7 +40,7 @@ use Banking;
         primary key (BRANCH_ID)
     );
 
-    create table BUSINESS (
+    create table business (
         INCORP_DATE date,
         NAME varchar(255) not null,
         STATE_ID varchar(10) not null,
@@ -48,7 +48,7 @@ use Banking;
         primary key (CUST_ID)
     );
 
-    create table CUSTOMER (
+    create table customer (
         CUST_ID integer not null auto_increment,
         ADDRESS varchar(30),
         CITY varchar(20),
@@ -59,13 +59,13 @@ use Banking;
         primary key (CUST_ID)
     );
 
-    create table DEPARTMENT (
+    create table department (
         DEPT_ID integer not null auto_increment,
         NAME varchar(20) not null,
         primary key (DEPT_ID)
     );
 
-    create table EMPLOYEE (
+    create table employee (
         EMP_ID integer not null auto_increment,
         END_DATE date,
         FIRST_NAME varchar(20) not null,
@@ -78,7 +78,7 @@ use Banking;
         primary key (EMP_ID)
     );
 
-    create table INDIVIDUAL (
+    create table individual (
         BIRTH_DATE date,
         FIRST_NAME varchar(30) not null,
         LAST_NAME varchar(30) not null,
@@ -86,7 +86,7 @@ use Banking;
         primary key (CUST_ID)
     );
 
-    create table OFFICER (
+    create table officer (
         OFFICER_ID integer not null auto_increment,
         END_DATE date,
         FIRST_NAME varchar(30) not null,
@@ -97,7 +97,7 @@ use Banking;
         primary key (OFFICER_ID)
     );
 
-    create table PRODUCT (
+    create table product (
         PRODUCT_CD varchar(10) not null,
         DATE_OFFERED date,
         DATE_RETIRED date,
@@ -106,81 +106,81 @@ use Banking;
         primary key (PRODUCT_CD)
     );
 
-    create table PRODUCT_TYPE (
+    create table product_type (
         PRODUCT_TYPE_CD varchar(255) not null,
         NAME varchar(50),
         primary key (PRODUCT_TYPE_CD)
     );
 
-    alter table ACCOUNT 
+    alter table account 
         add constraint ACCOUNT_CUSTOMER_FK 
         foreign key (CUST_ID) 
-        references CUSTOMER (CUST_ID);
+        references customer (CUST_ID);
 
-    alter table ACCOUNT 
+    alter table account 
         add constraint ACCOUNT_BRANCH_FK 
         foreign key (OPEN_BRANCH_ID) 
-        references BRANCH (BRANCH_ID);
+        references branch (BRANCH_ID);
 
-    alter table ACCOUNT 
+    alter table account 
         add constraint ACCOUNT_EMPLOYEE_FK 
         foreign key (OPEN_EMP_ID) 
-        references EMPLOYEE (EMP_ID);
+        references employee (EMP_ID);
 
-    alter table ACCOUNT 
+    alter table account 
         add constraint ACCOUNT_PRODUCT_FK 
         foreign key (PRODUCT_CD) 
-        references PRODUCT (PRODUCT_CD);
+        references product (PRODUCT_CD);
 
-    alter table ACC_TRANSACTION 
+    alter table acc_transaction 
         add constraint ACC_TRANSACTION_ACCOUNT_FK 
         foreign key (ACCOUNT_ID) 
-        references ACCOUNT (ACCOUNT_ID);
+        references account (ACCOUNT_ID);
 
-    alter table ACC_TRANSACTION 
+    alter table acc_transaction 
         add constraint ACC_TRANSACTION_BRANCH_FK 
         foreign key (EXECUTION_BRANCH_ID) 
-        references BRANCH (BRANCH_ID);
+        references branch (BRANCH_ID);
 
-    alter table ACC_TRANSACTION 
+    alter table acc_transaction 
         add constraint ACC_TRANSACTION_EMPLOYEE_FK 
         foreign key (TELLER_EMP_ID) 
-        references EMPLOYEE (EMP_ID);
+        references employee (EMP_ID);
 
-    alter table BUSINESS 
+    alter table business 
         add constraint BUSINESS_EMPLOYEE_FK 
         foreign key (CUST_ID) 
-        references CUSTOMER (CUST_ID);
+        references customer (CUST_ID);
 
-    alter table EMPLOYEE 
+    alter table employee 
         add constraint EMPLOYEE_BRANCH_FK 
         foreign key (ASSIGNED_BRANCH_ID) 
-        references BRANCH (BRANCH_ID);
+        references branch (BRANCH_ID);
 
-    alter table EMPLOYEE 
+    alter table employee 
         add constraint EMPLOYEE_DEPARTMENT_FK 
         foreign key (DEPT_ID) 
-        references DEPARTMENT (DEPT_ID);
+        references department (DEPT_ID);
 
-    alter table EMPLOYEE 
+    alter table employee 
         add constraint EMPLOYEE_EMPLOYEE_FK 
         foreign key (SUPERIOR_EMP_ID) 
-        references EMPLOYEE (EMP_ID);
+        references employee (EMP_ID);
 
-    alter table INDIVIDUAL 
+    alter table individual 
         add constraint INDIVIDUAL_CUSTOMER_FK 
         foreign key (CUST_ID) 
-        references CUSTOMER (CUST_ID);
+        references customer (CUST_ID);
 
-    alter table OFFICER 
+    alter table officer 
         add constraint OFFICER_CUSTOMER_FK 
         foreign key (CUST_ID) 
-        references CUSTOMER (CUST_ID);
+        references customer (CUST_ID);
 
-    alter table PRODUCT 
+    alter table product 
         add constraint PRODUCT_PRODUCT_TYPE_FK 
         foreign key (PRODUCT_TYPE_CD) 
-        references PRODUCT_TYPE (PRODUCT_TYPE_CD);
+        references product_type (PRODUCT_TYPE_CD);
 
 
  
@@ -366,7 +366,7 @@ drop table emp_tmp;
 
 /* product type data */
 insert into product_type (product_type_cd, name)
-values ('ACCOUNT','Customer Accounts');
+values ('account','Customer Accounts');
 insert into product_type (product_type_cd, name)
 values ('LOAN','Individual and Business Loans');
 insert into product_type (product_type_cd, name)
@@ -374,13 +374,13 @@ values ('INSURANCE','Insurance Offerings');
 
 /* product data */
 insert into product (product_cd, name, product_type_cd, date_offered)
-values ('CHK','checking account','ACCOUNT','2000-01-01');
+values ('CHK','checking account','account','2000-01-01');
 insert into product (product_cd, name, product_type_cd, date_offered)
-values ('SAV','savings account','ACCOUNT','2000-01-01');
+values ('SAV','savings account','account','2000-01-01');
 insert into product (product_cd, name, product_type_cd, date_offered)
-values ('MM','money market account','ACCOUNT','2000-01-01');
+values ('MM','money market account','account','2000-01-01');
 insert into product (product_cd, name, product_type_cd, date_offered)
-values ('CD','certificate of deposit','ACCOUNT','2000-01-01');
+values ('CD','certificate of deposit','account','2000-01-01');
 insert into product (product_cd, name, product_type_cd, date_offered)
 values ('MRT','home mortgage','LOAN','2000-01-01');
 insert into product (product_cd, name, product_type_cd, date_offered)
