@@ -7,26 +7,29 @@ public class CafeApp {
     private static final float SALES_TAX_PCT = 0.0625f;
 
     public static void main(String[] args) {
-        Product coffee = new Product("coffee", 2.5f, "Espresso & water.");
-        Product espresso = new Product("espresso", 3f, "Double shot of our espresso.");
-        Product cappuccino = new Product("cappuccino", 3.5f, "Double shot espresso, steamed milk, topped with foam.");
+        Product coffee = new Coffee("coffee", 2.5f, "Espresso & water.");
+        Product espresso = new Espresso("espresso", 3f, "Double shot of our espresso.");
+        Product cappuccino = new Cappuccino("cappuccino", 3.5f, "Double shot espresso, steamed milk, topped with foam.");
 
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Please enter quantity for " + coffee.getName() + ":");
         coffee.setQuantity(sc.nextInt());
         float coffeeSubtot = coffee.calculateProductSubtotal();
-        System.out.printf("name: %s\ndescription: %s\nsubtotal: %.2f\n\n", coffee.getName(), coffee.getDescription(), coffeeSubtot);
+        System.out.printf("name: %s\ndescription: %s\nquantity: %d\nsubtotal: %.2f\n\n", 
+            coffee.getName(), coffee.getDescription(), coffee.getQuantity(), coffeeSubtot);
 
         System.out.println("Please enter quantity for " + espresso.getName() + ":");
         espresso.setQuantity(sc.nextInt());
         float espressoSubtot = espresso.calculateProductSubtotal();
-        System.out.printf("name: %s\ndescription: %s\nsubtotal: %.2f\n\n", espresso.getName(), espresso.getDescription(), espressoSubtot);
+        System.out.printf("name: %s\ndescription: %s\nquantity: %d\nsubtotal: %.2f\n\n", 
+            espresso.getName(), espresso.getDescription(), espresso.getQuantity(), espressoSubtot);
 
         System.out.println("Please enter quantity for " + cappuccino.getName() + ":");
         cappuccino.setQuantity(sc.nextInt());
         float cappuccinoSubtot = cappuccino.calculateProductSubtotal();
-        System.out.printf("name: %s\ndescription: %s\nsubtotal: %.2f\n\n", cappuccino.getName(), cappuccino.getDescription(), cappuccinoSubtot);
+        System.out.printf("name: %s\ndescription: %s\nquantity: %d\nsubtotal: %.2f\n\n", 
+            cappuccino.getName(), cappuccino.getDescription(), cappuccino.getQuantity(), cappuccinoSubtot);
 
         sc.close();
 

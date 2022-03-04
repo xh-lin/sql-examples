@@ -1,6 +1,6 @@
 package com.perscholas.cafe;
 
-public class Product {
+public abstract class Product {
     
     private String name;
     private float price;
@@ -15,9 +15,7 @@ public class Product {
         this.description = description;
     }
 
-    public float calculateProductSubtotal() {
-        return quantity * price;
-    }
+    public abstract float calculateProductSubtotal();
 
     /*
         Getters & Setters
