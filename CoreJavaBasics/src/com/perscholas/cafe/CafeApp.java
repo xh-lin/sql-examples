@@ -4,39 +4,94 @@ import java.util.Scanner;
 
 public class CafeApp {
 
-    private static final float SALES_TAX_PCT = 0.0625f;
+    private static final String PLZ_ENTER_NUM = "Please enter a number";
+
+    private static void printWaitInput() {
+        System.out.print("> ");
+    }
 
     public static void main(String[] args) {
-        Product coffee = new Coffee("coffee", 2.5f, "Espresso & water.");
-        Product espresso = new Espresso("espresso", 3f, "Double shot of our espresso.");
-        Product cappuccino = new Cappuccino("cappuccino", 3.5f, "Double shot espresso, steamed milk, topped with foam.");
+        Product coffee = new Coffee("Coffee", 3.49f, "Espresso & water.");
+        Product espresso = new Espresso("Espresso", 3.99f, "Double shot of our espresso.");
+        Product cappuccino = new Cappuccino("Cappuccino", 4.99f, "Double shot espresso, steamed milk, topped with foam.");
 
+        Store store = new Store(coffee, espresso, cappuccino);
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        System.out.println();
+        store.printMenu();
+        printWaitInput();
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Please enter quantity for " + coffee.getName() + ":");
-        coffee.setQuantity(sc.nextInt());
-        float coffeeSubtot = coffee.calculateProductSubtotal();
-        System.out.printf("name: %s\ndescription: %s\nquantity: %d\nsubtotal: %.2f\n\n", 
-            coffee.getName(), coffee.getDescription(), coffee.getQuantity(), coffeeSubtot);
+        // menu selection
+        while (sc.hasNext()) {
+            if (sc.hasNextInt()) {
+                try {
+                    Product product = store.select(sc.nextInt());
+                    if (product == null) break; // checkout
+                    sc.nextLine();
 
-        System.out.println("Please enter quantity for " + espresso.getName() + ":");
-        espresso.setQuantity(sc.nextInt());
-        float espressoSubtot = espresso.calculateProductSubtotal();
-        System.out.printf("name: %s\ndescription: %s\nquantity: %d\nsubtotal: %.2f\n\n", 
-            espresso.getName(), espresso.getDescription(), espresso.getQuantity(), espressoSubtot);
+                    // quantity prompt
+                    product.printPrompt();
+                    printWaitInput();
+                    while (sc.hasNext()) {
+                        if (sc.hasNextInt()) {
+                            int quantity = sc.nextInt();
+                            if (quantity > 0) {
+                                product.setQuantity(quantity);
+                                break;
+                            } else {
+                                System.out.println("Please enter a quantity bigger than zero.");
+                            }
+                        } else {
+                            System.out.println(PLZ_ENTER_NUM);
+                        }
+                        sc.nextLine();
+                        printWaitInput();
+                    }
+                    
+                    sc.nextLine();
 
-        System.out.println("Please enter quantity for " + cappuccino.getName() + ":");
-        cappuccino.setQuantity(sc.nextInt());
-        float cappuccinoSubtot = cappuccino.calculateProductSubtotal();
-        System.out.printf("name: %s\ndescription: %s\nquantity: %d\nsubtotal: %.2f\n\n", 
-            cappuccino.getName(), cappuccino.getDescription(), cappuccino.getQuantity(), cappuccinoSubtot);
+                    // product option selection
+                    System.out.println();
+                    product.printOptions();
+                    printWaitInput();
+                    while (sc.hasNext()) {
+                        if (sc.hasNextInt()) {
+                            int option = sc.nextInt();
+                            try {
+                                product.addOptions(option);
+                                break;
+                            } catch (InvalidOptionException e) {
+                                System.out.println(e.getMessage());
+                            }
+                        } else {
+                            System.out.println(PLZ_ENTER_NUM);
+                        }
+                        sc.nextLine();
+                        printWaitInput();
+                    }
+
+                    // add product to shopping cart
+                    shoppingCart.addProduct(product);
+                    System.out.println();
+                    System.out.println(product);
+                    System.out.printf("%n%s added to shopping cart.%n%n", product.getName());
+                    store.printMenu();
+                } catch (InvalidOptionException e) {
+                    System.out.println(e.getMessage());
+                }
+            } else {
+                System.out.println(PLZ_ENTER_NUM);
+            }
+
+            sc.nextLine();
+            printWaitInput();
+        }
 
         sc.close();
-
-        float subtotal = coffeeSubtot + espressoSubtot + cappuccinoSubtot;
-        float salesTax = subtotal * SALES_TAX_PCT;
-        float salesTotal = subtotal + salesTax;
-        System.out.printf("sales subtotal: %.2f\nsales tax: %.2f\nsales total: %.2f\n", subtotal, salesTax, salesTotal);
+        System.out.println();
+        shoppingCart.printCheckout();
     }
 
 }

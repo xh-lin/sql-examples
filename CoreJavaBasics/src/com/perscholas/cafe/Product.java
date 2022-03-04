@@ -17,6 +17,22 @@ public abstract class Product {
 
     public abstract float calculateProductSubtotal();
 
+    public abstract void addOptions(int option) throws InvalidOptionException;
+
+    public abstract void printOptions();
+
+    public abstract Product getInstance();
+
+    public void printPrompt() {
+        System.out.printf("Please enter quantity for %s:%n", name);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Item:\t%-16sPrice: $%.2f\tQty: %d\tSubtotal: $%.2f", 
+            name, price, quantity, calculateProductSubtotal());
+    }
+
     /*
         Getters & Setters
     */
