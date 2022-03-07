@@ -35,12 +35,26 @@ public class SoftwareDeveloperClub {
         return this.members;
     }
 
-    public void removeMember(int index) {
-        members.remove(index);
+    public int size() {
+        return this.members.size();
+    }
+
+    public void printMembers(boolean withIndex) {
+        for (int i = 0; i < this.members.size(); i++) {
+            System.out.println("\n" + (withIndex ? i+".\n" : "") + members.get(i));
+        }
+    }
+
+    public ClubMember removeMember(int index) {
+        return members.remove(index);
     }
 
     public void addMember(ClubMember member) {
         members.add(member);
+    }
+
+    public void addMember(String name, String city, String favoriteLanguage) {
+        members.add(new ClubMember(name, city, favoriteLanguage));
     }
 
 }
