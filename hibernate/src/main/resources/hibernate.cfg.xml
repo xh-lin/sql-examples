@@ -20,5 +20,8 @@
         <!--   Mapping entity file -->
         <mapping class="com.perscholas.hibernate_demo.model.User"/>
         <mapping class="com.perscholas.hibernate_demo.model.Dep"/>
+
+        <mapping class="com.perscholas.relationship_demo.model.Teacher"/>
+        <mapping class="com.perscholas.relationship_demo.model.Department"/>
     </session-factory>
 </hibernate-configuration>
