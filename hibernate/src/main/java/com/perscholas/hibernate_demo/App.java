@@ -12,6 +12,7 @@ public class App
         u.findUserSelect();
         u.getRecordbyId();
         u.getmaxSalary();
+        u.namedQueryExample();
     }
 
 }

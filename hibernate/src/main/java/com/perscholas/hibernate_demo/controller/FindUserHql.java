@@ -1,6 +1,9 @@
 package com.perscholas.hibernate_demo.controller;
 
 import java.util.List;
+
+import javax.persistence.TypedQuery;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -69,6 +72,22 @@ public class FindUserHql {
         hql = "SELECT COUNT(*) FROM User U";
         List results = session.createQuery(hql).getResultList();
         System.out.println(results);
+    }
+
+    public void namedQueryExample() {
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+        String hql = "FROM User u WHERE u.id = :id";
+        TypedQuery query = session.createQuery(hql);
+        query.setParameter("id",2);
+        List<User> result = query.getResultList();
+
+        for (User u : result) {
+            System.out.println(
+                "User Id: " + u.getId() + "| Full Name: " + u.getFullname() +
+                "| Email: " + u.getEmail() + "| Password: " + u.getPassword());
+        }
     }
 
 }
