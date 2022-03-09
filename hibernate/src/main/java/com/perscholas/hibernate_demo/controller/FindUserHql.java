@@ -41,4 +41,19 @@ public class FindUserHql {
         }
     }
 
+    public void getRecordbyId() {
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+
+        String hql = "SELECT U FROM User U WHERE U.id < 5 ORDER BY U.id DESC";
+        Query query = session.createQuery(hql);
+        List<User> list  =  query.getResultList();
+
+        for (User u : list) {
+            System.out.println(
+                "User Id: " + u.getId() + "| Full Name: " + u.getFullname() +
+                "| Email: " + u.getEmail() + "| Password: " + u.getPassword());
+        }
+    }
+
 }
