@@ -9,6 +9,7 @@ public class App
     {
         FindUserHql u = new FindUserHql();
         u.findUser();
+        u.findUserSelect();
     }
 
 }
