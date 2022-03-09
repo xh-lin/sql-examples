@@ -20,9 +20,9 @@ public class Teacher implements Serializable  {
 	private int tit;
 	private String salary;
 	private String teachername;
-	@ManyToOne
-    @JoinColumn(name = "fk_dep")
-	private Department department;
+	// @ManyToOne
+    // @JoinColumn(name = "fk_dep")
+	// private Department department;
 
 	public Teacher() { }
 
@@ -33,13 +33,13 @@ public class Teacher implements Serializable  {
 		this.teachername = teachername;
 	}
 
-    public Department getDep() {
-		return department;
-	}
+    // public Department getDep() {
+	// 	return department;
+	// }
 
-	public void setDep(Department department) {
-		this.department = department;
-	}
+	// public void setDep(Department department) {
+	// 	this.department = department;
+	// }
 
     public int getTit() {
         return this.tit;
