@@ -56,4 +56,19 @@ public class FindUserHql {
         }
     }
 
+    public void getmaxSalary() {
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+
+		String hql = "SELECT Max(U.salary) FROM User U";
+		Query query = session.createQuery(hql);
+		double maxSalary =  (Double) query.getSingleResult();
+
+		System.out.println("Maximum Price:" + maxSalary);
+
+        hql = "SELECT COUNT(*) FROM User U";
+        List results = session.createQuery(hql).getResultList();
+        System.out.println(results);
+    }
+
 }
