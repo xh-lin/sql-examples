@@ -16,7 +16,9 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="hibernate.show_sql" >true</property>
         <property name="hibernate.format_sql" >true</property>
+
         <!--   Mapping entity file -->
         <mapping class="com.perscholas.hibernate_demo.model.User"/>
+        <mapping class="com.perscholas.hibernate_demo.model.Dep"/>
     </session-factory>
 </hibernate-configuration>
