@@ -1,7 +1,19 @@
 package com.perscholas.hibernate_demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USERS")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "USER_ID")
     private Integer id;
     private String fullname;
     private String email;
@@ -12,8 +24,7 @@ public class User {
 
     public User() { }
 
-    public User(Integer id, String fullname, String email, String password, int age, double salary, String city) {
-        this.id = id;
+    public User(String fullname, String email, String password, int age, double salary, String city) {
         this.fullname = fullname;
         this.email = email;
         this.password = password;
