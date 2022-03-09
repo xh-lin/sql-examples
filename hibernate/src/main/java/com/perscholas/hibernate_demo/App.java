@@ -1,13 +1,14 @@
 package com.perscholas.hibernate_demo;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import com.perscholas.hibernate_demo.controller.FindUserHql;
+
+public class App
 {
+
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        FindUserHql u = new FindUserHql();
+        u.findUser();
     }
+
 }
