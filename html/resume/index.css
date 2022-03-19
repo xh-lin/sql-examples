@@ -19,13 +19,16 @@ a, #title {
 }
 
 #media_links {
+    width: 1050px;
     height: 70px;
+    vertical-align: text-bottom;
 }
 
 #main_container {
     width: 1050px;
     height: 1485px;
     background-color: #282828;
+    margin-bottom: 30px;
 }
 
 #avatar {
