@@ -18,6 +18,10 @@ a, #title {
     color: #46a0d8
 }
 
+.debug {
+    border: 1px solid white;
+}
+
 #media_links {
     width: 1050px;
     height: 70px;
@@ -78,7 +82,7 @@ a, #title {
     border: 3px solid #373737;
 }
 
-#session2 h5 {
+#employment_title, #education_title {
     background-color: #373737;
     display: block;
     margin-top: 40px;
@@ -90,23 +94,40 @@ a, #title {
     width: 35px;
     display: inline-block;
     border-radius: 10%;
-    margin-right: 10px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.circle-bullet {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 8px;
+    text-align: center;
 }
 
 .arrow-down {
     border: solid #fafafa;
     border-width: 0 4px 4px 0;
     display: inline-block;
-    padding: 3px;
+    padding: 3.5px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
 
-.arrow-right-small {
+.arrow-right {
     border: solid #fafafa;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     display: inline-block;
-    padding: 3px;
+    padding: 2.5px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+    position: relative;
+    top: -20%;
+    left: -7%;
+}
+
+#employment h4, #education h4 {
+    text-transform: none;
 }
