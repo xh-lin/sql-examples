@@ -43,9 +43,9 @@ a, #title {
     padding-right: 10px;
 }
 
-#session2 h5 {
-    padding-top: 40px;
-    padding-bottom: 15px;
+#session3 h5 {
+    margin-top: 40px;
+    margin-bottom: 15px;
 }
 
 .progress {
@@ -76,4 +76,37 @@ a, #title {
     border-radius: 50%;
     display: inline-block;
     border: 3px solid #373737;
+}
+
+#session2 h5 {
+    background-color: #373737;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.square-bullet {
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    border-radius: 10%;
+    margin-right: 10px;
+}
+
+.arrow-down {
+    border: solid #fafafa;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.arrow-right-small {
+    border: solid #fafafa;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
