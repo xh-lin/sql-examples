@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+</head>
+<body>
+    <div>
+        <form id="boxForm">
+            <div>
+                <input type="number" id="width" name="width" placeholder="Width" min="1">
+            </div>
+            <div>
+                <input type="number" id="height" name="height" placeholder="Height" min="1">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script >
+        let form = document.getElementById('boxForm');
+
+        form.onsubmit = function() {
+            let width = form.querySelector('#width').value;
+            let height = form.querySelector('#height').value
+
+            let b;
+            let text = '';
+
+            text += 'Input width: ' + width + '\n';
+            text += 'Input height: ' + height + '\n';
+            text += '\nShape:\n';
+
+            for (let i = 0; i < height; i++) {
+                b = (i % 2 == 0);
+                for (let j = 0; j < width; j++) {
+                    text += b ? '*' : ' ';
+                    b = !b;
+                }
+                text += '\n';
+            }
+
+            console.log(text);
+
+            return false; // prevent form from being submitted
+        };
+    </script>
+</body>
+</html>
