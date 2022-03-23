@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upper Triangle</title>
+</head>
+<body>
+    <div>
+        <form id="boxForm">
+            <div>
+                <input type="number" id="size" name="size" placeholder="Size" min="1">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script >
+        let form = document.getElementById('boxForm');
+
+        form.onsubmit = function() {
+            let size = form.querySelector('#size').value;
+
+            let a = 0, b = size-1;
+            let text = '';
+
+            text += 'Input size length: ' + size + '\n';
+            text += '\nShape:\n';
+
+            for (let i = 0; i < size; i++) {
+                text += ' '.repeat(i) + '*'.repeat(size-i) + '\n';
+            }
+
+            console.log(text);
+
+            return false; // prevent form from being submitted
+        };
+    </script>
+</body>
+</html>
