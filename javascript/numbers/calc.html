@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <script>
+        let text = prompt('Enter a mathematical formulas composed of symbols +, -, and non-negative integer numbers, separated by spaces');
+        text = text.split(' ').join(''); // clear spaces
+        let nums = text.split(/[^\d]+/);
+        let ops = text.split(/\d+/);
+
+        console.log(nums, ops);
+
+        function calculate(nums, ops) {
+            let sum = parseInt(nums[0], 10);
+
+            for (let i = 1; i < nums.length; i++) {
+                let op = ops[i];
+                if (op === '+') {
+                    sum += parseInt(nums[i], 10);
+                } else if (op === '-') {
+                    sum -= parseInt(nums[i], 10);
+                } else {
+                    console.error('Invalid operator: ' + op);
+                    failed = true;
+                    return;
+                }
+            }
+
+            alert(sum);
+        }
+
+        calculate(nums, ops);
+    </script>
+</body>
+</html>
