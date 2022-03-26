@@ -1,0 +1,361 @@
+Script started on 2022-03-18 13:58:28-04:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="121" LINES="28"]
+[92mxuhuang@NZXT-H400i [94m~/school-managment-system [91m(master)[00m$  cd /home/xuhuang/school-managment-system ; /usr/bin/env /usr/lib/jvm/java-11-openjdk-amd64/bin/java @/tmp/cp_bjagobic4mclbk5efundp6sb.argfile jpa.mainrunner.SMSRunner 
+Are you a(n)
+ 1. Student
+ 2. quit
+
+Please, enter 1 or 2.
+1
+Enter Your Email:
+a@a.com
+Enter Your Password:
+aa
+
+
+Mar 18, 2022 1:58:47 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.6.7.Final
+Mar 18, 2022 1:58:48 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.mariadb.jdbc.Driver] at URL [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2022 1:58:48 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+Mar 18, 2022 1:58:48 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@65d57e4e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    select
+        student0_.email as email1_1_0_,
+        student0_.name as name2_1_0_,
+        student0_.password as password3_1_0_,
+        scourses1_.student_email as student_1_2_1_,
+        course2_.id as course_i2_2_1_,
+        course2_.id as id1_0_2_,
+        course2_.instructor as instruct2_0_2_,
+        course2_.name as name3_0_2_ 
+    from
+        Student student0_ 
+    left outer join
+        Student_Course scourses1_ 
+            on student0_.email=scourses1_.student_email 
+    left outer join
+        Course course2_ 
+            on scourses1_.course_id=course2_.id 
+    where
+        student0_.email=?
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.mariadb.jdbc.Driver] at URL [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2022 1:58:48 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+Mar 18, 2022 1:58:48 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5349b246] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    select
+        student0_.email as email1_1_0_,
+        student0_.name as name2_1_0_,
+        student0_.password as password3_1_0_,
+        scourses1_.student_email as student_1_2_1_,
+        course2_.id as course_i2_2_1_,
+        course2_.id as id1_0_2_,
+        course2_.instructor as instruct2_0_2_,
+        course2_.name as name3_0_2_ 
+    from
+        Student student0_ 
+    left outer join
+        Student_Course scourses1_ 
+            on student0_.email=scourses1_.student_email 
+    left outer join
+        Course course2_ 
+            on scourses1_.course_id=course2_.id 
+    where
+        student0_.email=?
+Mar 18, 2022 1:58:48 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mariadb://localhost:3306/smsdb]
+
+
+My Classes:
+ID  COURSE NAME                   INSTRUCTOR NAME
+10  Art                           Kingsly Doxsey
+9   Politics                      Carmita De Maine
+8   Data Structures               Carolan Stoller
+
+ 1. Register to Class
+ 2. Logout
+1
+
+
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.mariadb.jdbc.Driver] at URL [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2022 1:58:58 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+Mar 18, 2022 1:58:58 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@120d3fd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    select
+        student0_.email as email1_1_0_,
+        student0_.name as name2_1_0_,
+        student0_.password as password3_1_0_,
+        scourses1_.student_email as student_1_2_1_,
+        course2_.id as course_i2_2_1_,
+        course2_.id as id1_0_2_,
+        course2_.instructor as instruct2_0_2_,
+        course2_.name as name3_0_2_ 
+    from
+        Student student0_ 
+    left outer join
+        Student_Course scourses1_ 
+            on student0_.email=scourses1_.student_email 
+    left outer join
+        Course course2_ 
+            on scourses1_.course_id=course2_.id 
+    where
+        student0_.email=?
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.mariadb.jdbc.Driver] at URL [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2022 1:58:58 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+Mar 18, 2022 1:58:58 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2629d5dc] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    select
+        course0_.id as id1_0_,
+        course0_.instructor as instruct2_0_,
+        course0_.name as name3_0_ 
+    from
+        Course course0_
+Mar 18, 2022 1:58:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mariadb://localhost:3306/smsdb]
+
+
+All Courses:
+ID  COURSE NAME                   INSTRUCTOR NAME
+1   English                       Anderea Scamaden
+2   Mathematics                   Eustace Niemetz
+3   Anatomy                       Reynolds Pastor
+4   Organic Chemistry             Odessa Belcher
+5   Physics                       Dani Swallow
+6   Digital Logic                 Glenden Reilingen
+7   Object Oriented Programming   Giselle Ardy
+8   Data Structures               Carolan Stoller
+9   Politics                      Carmita De Maine
+10  Art                           Kingsly Doxsey
+
+Which Course?
+1 7
+
+
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.mariadb.jdbc.Driver] at URL [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2022 1:59:18 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+Mar 18, 2022 1:59:18 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@21b6c9c2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    select
+        student0_.email as email1_1_0_,
+        student0_.name as name2_1_0_,
+        student0_.password as password3_1_0_,
+        scourses1_.student_email as student_1_2_1_,
+        course2_.id as course_i2_2_1_,
+        course2_.id as id1_0_2_,
+        course2_.instructor as instruct2_0_2_,
+        course2_.name as name3_0_2_ 
+    from
+        Student student0_ 
+    left outer join
+        Student_Course scourses1_ 
+            on student0_.email=scourses1_.student_email 
+    left outer join
+        Course course2_ 
+            on scourses1_.course_id=course2_.id 
+    where
+        student0_.email=?
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.mariadb.jdbc.Driver] at URL [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2022 1:59:18 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+Mar 18, 2022 1:59:18 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7a9eccc4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    select
+        course0_.id as id1_0_0_,
+        course0_.instructor as instruct2_0_0_,
+        course0_.name as name3_0_0_ 
+    from
+        Course course0_ 
+    where
+        course0_.id=?
+Hibernate: 
+    select
+        student0_.email as email1_1_1_,
+        student0_.name as name2_1_1_,
+        student0_.password as password3_1_1_,
+        scourses1_.student_email as student_1_2_3_,
+        course2_.id as course_i2_2_3_,
+        course2_.id as id1_0_0_,
+        course2_.instructor as instruct2_0_0_,
+        course2_.name as name3_0_0_ 
+    from
+        Student student0_ 
+    left outer join
+        Student_Course scourses1_ 
+            on student0_.email=scourses1_.student_email 
+    left outer join
+        Course course2_ 
+            on scourses1_.course_id=course2_.id 
+    where
+        student0_.email=?
+Hibernate: 
+    delete 
+    from
+        Student_Course 
+    where
+        student_email=?
+Hibernate: 
+    insert 
+    into
+        Student_Course
+        (student_email, course_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        Student_Course
+        (student_email, course_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        Student_Course
+        (student_email, course_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        Student_Course
+        (student_email, course_id) 
+    values
+        (?, ?)
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.mariadb.jdbc.Driver] at URL [jdbc:mariadb://localhost:3306/smsdb]
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2022 1:59:18 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2022 1:59:18 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+Mar 18, 2022 1:59:19 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@318c68d5] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Mar 18, 2022 1:59:19 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    select
+        student0_.email as email1_1_0_,
+        student0_.name as name2_1_0_,
+        student0_.password as password3_1_0_,
+        scourses1_.student_email as student_1_2_1_,
+        course2_.id as course_i2_2_1_,
+        course2_.id as id1_0_2_,
+        course2_.instructor as instruct2_0_2_,
+        course2_.name as name3_0_2_ 
+    from
+        Student student0_ 
+    left outer join
+        Student_Course scourses1_ 
+            on student0_.email=scourses1_.student_email 
+    left outer join
+        Course course2_ 
+            on scourses1_.course_id=course2_.id 
+    where
+        student0_.email=?
+Mar 18, 2022 1:59:19 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mariadb://localhost:3306/smsdb]
+
+
+My Classes:
+ID  COURSE NAME                   INSTRUCTOR NAME
+10  Art                           Kingsly Doxsey
+9   Politics                      Carmita De Maine
+8   Data Structures               Carolan Stoller
+7   Object Oriented Programming   Giselle Ardy
+
+
+You have been signed out.
+[92mxuhuang@NZXT-H400i [94m~/school-managment-system [91m(master)[00m$ [K[92mxuhuang@NZXT-H400i [94m~/school-managment-system [91m(master)[00m$ [K[92mxuhuang@NZXT-H400i [94m~/school-managment-system [91m(master)[00m$ [K[92mxuhuang@NZXT-H400i [94m~/school-managment-system [91m(master)[00m$ exit
+exit
+
+Script done on 2022-03-18 14:24:56-04:00 [COMMAND_EXIT_CODE="0"]
