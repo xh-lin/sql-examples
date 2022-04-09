@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/global.css">
+
+    <title>AD - SBA - HTML/CSS/JavaScript</title>
+</head>
+<body class="bg-secondary">
+
+    <div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contents.html">Contents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="forms.html" aria-current="page">Forms</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container  mb-3">
+            <div class="d-flex mt-3">
+                <div class="w-50" style="min-width: 400px;">
+                    <div class="card p-3">
+                        <form id="registerForm">
+                            <div class="mb-3">
+                                <label for="rEmail" class="form-label">Email:</label>
+                                <input type="email" class="form-control" name="email" id="rEmail" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="rPw" class="form-label">Password:</label>
+                                <input type="password" class="form-control" name="password" id="rPw" pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$" aria-describedby="passwordHelpBlock" required>
+                                <div id="passwordHelpBlock" class="form-text">
+                                    <ul>
+                                        <li id="pwUpper">At least one upper case English letter</li>
+                                        <li id="pwLower">At least one lower case English letter</li>
+                                        <li id="pwDigit">At least one digit</li>
+                                        <li id="pwSpeChar">At least one special character</li>
+                                        <li id="pwMinLen">Minimum eight in length</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="rPw2" class="form-label">Comfirm Password:</label>
+                                <input type="password" class="form-control" name="password2" id="rPw2" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userType" class="form-label">Select user type</label>
+                                <select id="userType" class="form-select" required>
+                                    <option disabled selected value> -- select an option -- </option>
+                                    <option>Type A</option>
+                                    <option>Type B</option>
+                                    <option>Type C</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <input type="checkbox" class="form-check-input" id="rCheckBox" required>
+                                <label for="rCheckBox" class="form-check-label">You have to check this</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </form>
+                    </div>
+
+                    <div class="card p-3 mt-3">
+                        <div id="loginMessage"></div>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <input type="email" class="form-control" name="email" id="lEmail" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" name="password" id="lPw" placeholder="Enter your password"aria-describedby="passwordHelpBlock" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card align-self-start ms-3 w-50" style="min-width: 400px; min-height: 100px;">
+                    <table class="table table-striped" aria-describedby="user-list">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/forms.js"></script>
+</body>
+</html>
